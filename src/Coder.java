@@ -1,4 +1,5 @@
 import java.io.*;
+
 public class Coder {
     Data data = new Data();
     char[] charsAlphabet = data.getAlphabet();
@@ -7,6 +8,7 @@ public class Coder {
     {
         if (key < 0) key = key * -1;
     }
+
     public void cryptor() {
         try (BufferedReader br = new BufferedReader(new FileReader(Data.MESSAGE));
              BufferedWriter bw = new BufferedWriter(new FileWriter(Data.CRYPTO_MESSAGE))) {
@@ -56,29 +58,7 @@ public class Coder {
     }
 
     public void broutforce() {
-        try (BufferedReader br = new BufferedReader(new FileReader(Data.CRYPTO_MESSAGE));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(Data.DECRYPTO_MESSAGE))) {
-            while (br.ready()) {
-                char[] cryptoMessageCharArray = br.readLine().toCharArray();
-                char[] decryptoMessageCharArray = new char[cryptoMessageCharArray.length];
-                for (int i = 0; i < cryptoMessageCharArray.length; i++) {
-                    for (int j = 0; j < charsAlphabet.length; j++) {
-                        if (charsAlphabet[j] == cryptoMessageCharArray[i]) {
-                            int temp = j - key % charsAlphabet.length;
-                            if (temp < 0) {
-                                temp = charsAlphabet.length + temp;
-                            }
-                            decryptoMessageCharArray[i] = charsAlphabet[temp % charsAlphabet.length];
-                        }
-                    }
-                }
-                bw.write(decryptoMessageCharArray);
-                bw.write("\n");
-                bw.flush();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        System.out.println("\nК сожалению, брут форс пока не реализован((".toUpperCase());
     }
 }
 
