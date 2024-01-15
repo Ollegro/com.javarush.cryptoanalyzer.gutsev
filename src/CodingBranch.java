@@ -1,18 +1,37 @@
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class CodingBranch {
-    public static void codingmenu(){
-        System.out.println("Запишите сообщение для шифровки в файл " + "⬇");
-        System.out.println(Data.MESSAGE);
-        System.out.println("Введите ключ шифрования " + "⬇");
 
-        Scanner scanner = new Scanner(System.in);
-        Data.setKey(scanner.nextInt());
+    public static void codingmenu() {
 
-        Coder coder = new Coder();
-        coder.cryptor();
-        System.out.println("Зашифрованный файл лежит здесь " + "⬇");
-        System.out.println(Data.CRYPTO_MESSAGE);
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Задайте путь для файла который надо зашифровать " + "⬇");
+            Data.pathToMessageFile = scanner.nextLine();
+
+            if (!Files.isRegularFile(Path.of(Data.pathToMessageFile)) || !Files.exists(Path.of(Data.pathToMessageFile))) {
+
+                System.out.println(Data.rightPathMessage);
+                codingmenu();
+            } else if (Files.exists(Path.of(Data.pathToMessageFile))) {
+
+                System.out.println(Data.keyCodingMessage);
+            }
+
+            while (!scanner.hasNextInt()) {
+                System.out.println(Data.keyCodingMessage);
+                scanner.next();
+            }
+            Data.setKey(scanner.nextInt());
+
+
+            Coder coder = new Coder();
+            coder.cryptor();
+            System.out.println("Зашифрованный файл лежит здесь " + "⬇");
+            System.out.println(Data.CRYPTO_MESSAGE);
+        }
 
     }
 }
+

@@ -4,7 +4,7 @@ public class BroutForceBranch {
         System.out.println(Data.CRYPTO_MESSAGE);
         Coder coder = new Coder();
         coder.broutforce();
-        //System.out.println("Взломанный файл лежит здесь " + "⬇");
-        //System.out.println(Data.BROUT_FORCE_DECRYPTO_MESSAGE);
+        System.out.println("Взломанный файл лежит здесь " + "⬇");
+        System.out.println(Data.BROUT_FORCE_DECRYPTO_MESSAGE);
     }
 }

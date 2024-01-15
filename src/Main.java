@@ -6,7 +6,7 @@ public class Main {
 
 
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Выберите операцию:\nШифрование - 1\nДешифование - 2\nВзлом - 3\nЛюбой символ - для выхода\n");
+            System.out.print("Выберите операцию:\n1 - Шифрование\n2 - Дешифование\n3 - Взлом\nлюбой символ - для выхода\n");
             String choice = "";
             boolean nextRound = true;
             while (nextRound) {

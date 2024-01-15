@@ -1,4 +1,6 @@
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class Coder {
     Data data = new Data();
@@ -10,7 +12,7 @@ public class Coder {
     }
 
     public void cryptor() {
-        try (BufferedReader br = new BufferedReader(new FileReader(Data.MESSAGE));
+        try (BufferedReader br = new BufferedReader(new FileReader(Data.pathToMessageFile));
              BufferedWriter bw = new BufferedWriter(new FileWriter(Data.CRYPTO_MESSAGE))) {
             while (br.ready()) {
                 char[] messageCharArray = br.readLine().toCharArray();
@@ -59,6 +61,8 @@ public class Coder {
 
     public void broutforce() {
         System.out.println("\nК сожалению, брут форс пока не реализован((".toUpperCase());
+
+
     }
 }
 

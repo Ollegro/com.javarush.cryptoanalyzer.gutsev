@@ -11,7 +11,12 @@ public class Data {
     public static void setKey(int key) {
         Data.key = key;
     }
-    static final String MESSAGE = "C:\\Users\\use\\YandexDisk\\IdeaProjects\\com.javarush.cryptoanalyzer.gutsev\\src\\data.txt";
+    //static final String MESSAGE = "C:\\Users\\use\\YandexDisk\\IdeaProjects\\com.javarush.cryptoanalyzer.gutsev\\src\\data.txt";
+    static String pathToMessageFile;
+    static String pathToCriptoFile;
+    static String keyCodingMessage = "Введите ключ шифрования - целое число   \"⬇\"";
+    static String rightPathMessage = "Введите правильный путь   \"⬇\"";
+
     static final String CRYPTO_MESSAGE = "C:\\Users\\use\\YandexDisk\\IdeaProjects\\com.javarush.cryptoanalyzer.gutsev\\src\\cryptoData.txt";
     static final String DECRYPTO_MESSAGE = "C:\\Users\\use\\YandexDisk\\IdeaProjects\\com.javarush.cryptoanalyzer.gutsev\\src\\decryptoData.txt";
     static final String BROUT_FORCE_DECRYPTO_MESSAGE = "C:\\Users\\use\\YandexDisk\\IdeaProjects\\com.javarush.cryptoanalyzer.gutsev\\src\\brout_force_decryptoData.txt";
