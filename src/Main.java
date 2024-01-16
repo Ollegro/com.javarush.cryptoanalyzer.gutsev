@@ -3,13 +3,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.print("Выберите операцию:\n1 - Шифрование\n2 - Дешифование\n3 - Взлом\nлюбой символ - для выхода\n");
-            String choice = "";
-            boolean nextRound = true;
-            while (nextRound) {
+            String choice ;
+            boolean isChoice = true;
+            while (isChoice) {   // генерим меню
                 choice = scanner.nextLine();
                 if ("1".equals(choice)) {
                     System.out.println("Выбрали шифрование.");
@@ -24,10 +22,9 @@ public class Main {
                     BroutForceBranch.broutforcemenu();
                     break;
                 } else {
-                    nextRound = false;
+                    isChoice = false;
                 }
             }
-
         }
     }
 }

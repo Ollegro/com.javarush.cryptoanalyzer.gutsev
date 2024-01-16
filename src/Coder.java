@@ -1,10 +1,8 @@
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 public class Coder {
-    Data data = new Data();
-    char[] charsAlphabet = data.getAlphabet();
+
+    char[] charsAlphabet = Data.getAlphabet();
     private int key = Data.getKey();
 
     {
@@ -59,12 +57,31 @@ public class Coder {
         }
     }
 
-    public void broutforce() {
-        System.out.println("\nК сожалению, брут форс пока не реализован((".toUpperCase());
-
-
+    public void broutforce() throws IOException {
+        for (int z = 0; z < Data.getAlphabet().length; z++) {
+            BufferedReader br = new BufferedReader(new FileReader(Data.pathToCriptoFile));
+                 BufferedWriter bw = new BufferedWriter(new FileWriter(Data.BROUT_FORCE_DECRYPTO_MESSAGE + " №" + z));
+                while (br.ready()) {
+                    char[] cryptoMessageCharArray = br.readLine().toCharArray();
+                    char[] decryptoMessageCharArray = new char[cryptoMessageCharArray.length];
+                    for (int i = 0; i < cryptoMessageCharArray.length; i++) {
+                        for (int j = 0; j < charsAlphabet.length; j++) {
+                            if (charsAlphabet[j] == cryptoMessageCharArray[i]) {
+                                int temp = j - z % charsAlphabet.length;
+                                if (temp < 0) {
+                                    temp = charsAlphabet.length + temp;
+                                }
+                                decryptoMessageCharArray[i] = charsAlphabet[temp % charsAlphabet.length];
+                            }
+                        }
+                    }
+                    bw.write(decryptoMessageCharArray);
+                    bw.write("\n");
+                    bw.flush();
+                }
+            }
+        }
     }
-}
 
 
 
