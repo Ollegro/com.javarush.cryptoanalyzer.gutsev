@@ -11,22 +11,32 @@ public class Data {
     }
 
     public static void setKey(int key) {
+        if (key < 0) key = key * -1;
         Data.key = key;
     }
 
     static String pathToMessageFile;
-    static String pathToCriptoFile;
+
+    public static String getPathToMessageFile() {
+        return pathToMessageFile;
+    }
+
+    public static void setPathToMessageFile(String pathToMessageFile) {
+        Data.pathToMessageFile = pathToMessageFile;
+    }
+
     static String keyCodingMessage = "Введите ключ шифрования - целое число   \"⬇\"";
+    static String infoMessagePathToReadFile = "Задайте путь для файла который надо преобразовать " + "⬇";
     static String rightPathMessage = "Введите правильный путь   \"⬇\"";
     static String fileIsHere = "Файл с результатом здесь  \"⬇\" ";
-    static final String CRYPTO_MESSAGE = "C:\\Users\\use\\YandexDisk\\IdeaProjects\\com.javarush.cryptoanalyzer.gutsev\\src\\documents\\cryptoData.txt";
-    static final String DECRYPTO_MESSAGE = "C:\\Users\\use\\YandexDisk\\IdeaProjects\\com.javarush.cryptoanalyzer.gutsev\\src\\documents\\decryptoData.txt";
-    static final String BROUT_FORCE_DECRYPTO_MESSAGE = "C:\\Users\\use\\YandexDisk\\IdeaProjects\\com.javarush.cryptoanalyzer.gutsev\\src\\documents\\broutforcefiles\\brout_force_decryptoData.txt";
+    static final String CRYPTO_MESSAGE = "C:\\Users\\use\\YandexDisk\\IdeaProjects\\com.javarush.cryptoanalyzer.gutsev\\src\\documents\\crdata.txt";
+    static final String DECRYPTO_MESSAGE = "C:\\Users\\use\\YandexDisk\\IdeaProjects\\com.javarush.cryptoanalyzer.gutsev\\src\\documents\\dcrdata.txt";
+    static final String BROUT_FORCE_DECRYPTO_MESSAGE = "C:\\Users\\use\\YandexDisk\\IdeaProjects\\com.javarush.cryptoanalyzer.gutsev\\src\\documents\\broutforcefiles\\brout_force_dcrdata.txt";
     static final String BROUT_FORCE_PACKAGE = "C:\\Users\\use\\YandexDisk\\IdeaProjects\\com.javarush.cryptoanalyzer.gutsev\\src\\documents\\broutforcefiles";
 
     public static char[] getAlphabet() {
         return alphabet;
     }
-
 }
+
 
