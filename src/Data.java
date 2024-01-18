@@ -15,7 +15,7 @@ public class Data {
         Data.key = key;
     }
 
-    static String pathToMessageFile;
+    static private String pathToMessageFile;
 
     public static String getPathToMessageFile() {
         return pathToMessageFile;
